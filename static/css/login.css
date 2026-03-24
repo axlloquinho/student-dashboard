@@ -1,0 +1,45 @@
+
+  
+
+body{
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+}
+.login_box{
+    border-radius: 20px;
+    background-color: black;
+    width: 350px;
+    height: 300px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 3px solid cadetblue;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  outline: none;
+  background: transparent;
+  display: block;
+  margin: 20px auto;
+  width: 200px;
+}
+
+button{
+    margin-bottom: 16px;
+    width: 50%;
+    height: 15%;
+    text-shadow: floralwhite 15cap;
+    background-color: cornflowerblue;
+    
+}
+
+.linkgg{
+    color: blue;
+}

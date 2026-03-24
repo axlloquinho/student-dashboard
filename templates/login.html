@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagina-login</title>
+    <link rel="stylesheet" href="static/css/login.css">
+</head>
+<body>
+    <h1>login</h1>
+    
+    {% if invalido %}
+    <p style="color: red;">{{ invalido }}</p>
+    {% endif %}
+
+    <form method="post">
+        <div class="login_box">
+            <input id="nome" name="nome" placeholder="nome:" required>
+            <input id="senha" name="senha" type="password" placeholder="senha:" required>
+            <button type="submit">login</button>
+            <a href="{{url_for("rota_cadastro")}}">nao tem uma conta?</a>
+        </div>
+    </form>
+</body>
+</html>

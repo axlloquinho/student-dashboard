@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>grafico-page</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="static/css/grafico.css">
+</head>
+
+<body>
+
+  <div class="container">
+    
+    <div class="topo">
+      <select class="tipos" id="tipos_graficos" onchange="atualizarGrafico()">
+        <option value="bar">barra</option>
+        <option value="pie">pizza</option>
+        <option value="doughnut">rosquinha</option>
+        <option value="line">linha</option>
+      </select>
+      
+      <select class="bimestre" id="bimestre" onchange="atualizarGrafico()">
+        <option value="1">1° bimestre</option>
+        <option value="2">2° bimestre</option>
+        <option value="3">3° bimestre</option>
+        <option value="4">4° bimestre</option>
+      </select>
+    </div>
+
+    <div class="grafico-area">
+      
+      <div class="grafico-container">
+        <canvas id="grafico_notas"></canvas>
+      </div>
+
+      <div class="legenda" id="legenda"></div>
+    
+    </div>
+
+  </div>
+
+  <script src="static/js/grafico.js"></script>
+</body>
+
+</html>

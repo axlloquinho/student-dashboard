@@ -1,4 +1,7 @@
 from flask import Flask 
+from database import criar_tabelas
+
+criar_tabelas()
 
 app = Flask(__name__)
 

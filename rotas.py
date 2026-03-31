@@ -14,7 +14,7 @@ def rota_login():
 
         nome = request.form['nome']
         senha = request.form['senha']
-
+        
         resultado = login_funcao(nome,senha)
        
         if resultado == "permitido":
@@ -33,7 +33,7 @@ def rota_cadastro():
         
         nome = request.form['nome']
         senha = request.form['senha']
-
+        
         resultado = cadastrar(nome,senha)
 
         if resultado == "existe":
@@ -50,3 +50,8 @@ def rota_principal():
     user = request.args.get("user")
     return render_template("principal.html",user=f"{user}")
     
+
+@app.route("/grafico")
+def rota_grafico():
+  
+    return render_template("grafico.html")

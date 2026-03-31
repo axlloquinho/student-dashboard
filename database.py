@@ -12,8 +12,8 @@ def cadastrar(nome, senha):
 
     try:
       cursor.execute(
-        "INSERT INTO usuarios(nome, senha) VALUES (?, ?)",
-        (nome, senha)
+        "INSERT INTO usuarios(id,nome, senha) VALUES (?, ?)",
+        (id,nome, senha)
     )
 
       conexao.commit()
@@ -51,4 +51,53 @@ def login_funcao(nome,senha):
     return "negado" 
 
   conexao.close()   
-      
+
+
+
+#parte das notas.... nao sei como vou fazer isso funcionar... tem só 2 meses que estudo
+def criar_tabelas():
+  conexao = sqlite3.connect("instance/database.db")
+  cursor = conexao.cursor()
+
+  cursor.execute("""CREATE TABLE IF NOT EXISTS bimestres(
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,  
+  nome TEXT NOT NULL)""")  
+
+  cursor.execute("""CREATE TABLE IF NOT EXISTS materias(
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  nome TEXT NOT NULL)""")
+
+  cursor.execute("""CREATE TABLE IF NOT EXISTS notas(
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  usuario_id INTEGER,
+  materia_id INTEGER,
+  bimestre_id INTEGER,
+  nota REAL,
+
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
+  FOREIGN KEY (materia_id) REFERENCES materias(id),
+  FOREIGN KEY (bimestre_id) REFERENCES bimestres(id)
+  )
+  """)
+
+  conexao.commit()
+  conexao.close()
+
+
+
+def pegar_notas(usuario_id):
+  conexao = sqlite3.connect("instance/database.db")
+  cursor = conexao.cursor()
+
+  cursor.execute("""
+    SELECT bimestres.nome, materias.nome, notas.nota
+    FROM notas
+    JOIN materias ON materias.id = notas.materia_id
+    JOIN bimestres ON bimestres.id = notas.bimestre_id
+    WHERE notas.usuario_id = ?
+    """, (usuario_id,))
+
+  dados = cursor.fetchall()
+  conexao.close()
+  
+  return notas

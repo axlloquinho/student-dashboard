@@ -1,0 +1,98 @@
+body {
+  background-color: #f0f4f8;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* container geral */
+.container {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* topo */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* selects */
+.bimestre, .tipos {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  padding: 6px;
+  width: 48%;
+  height: 35px;
+
+  text-align: center;
+  cursor: pointer;
+}
+
+/* área principal */
+.grafico-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* container que resolve o bug */
+.grafico-container {
+  width: 100%;
+  height: 220px;
+
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* canvas controlado */
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* legenda */
+.legenda {
+  margin-top: 10px;
+  width: 100%;
+
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.legenda div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+/* desktop */
+@media (min-width: 600px) {
+  .grafico-area {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .grafico-container {
+    width: 65%;
+    height: 300px;
+  }
+
+  .legenda {
+    width: 30%;
+    margin-left: 10px;
+  }
+}
